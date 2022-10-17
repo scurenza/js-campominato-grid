@@ -19,6 +19,10 @@ const container = document.querySelector(".square-container");
 
 // Creazione della griglia al click del bottone
 btn.addEventListener ("click" , function() {
+
+    // "Pulisco" il container
+    container.innerHTML = "";
+    
     // Prendo l'input della difficoltà
     const difficulty = parseInt( document.getElementById("difficulty").value);
     
@@ -47,6 +51,7 @@ btn.addEventListener ("click" , function() {
 
 });
 
+
 // Funzione per creare gli squares -- Condizione panelSize ancora da aggiungere
 
 /**
@@ -58,7 +63,6 @@ btn.addEventListener ("click" , function() {
 function createSquares (innerNum) {
     const newSquare = document.createElement("div");
     newSquare.classList.add("square");
-    // newSquare.classList.add("lg");
     newSquare.innerHTML = innerNum;
     return newSquare;
 }
