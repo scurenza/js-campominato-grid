@@ -11,19 +11,54 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe; */
 
 
-// Collego il bottone a js e inizializzo la griglia al click
+// Dati
 const btn = document.getElementById("btn");
 const container = document.querySelector(".square-container");
+const difficulty = document.querySelectorAll("option");
+console.log(difficulty);
 
 
-
+// Creazione della griglia al click del bottone
 btn.addEventListener ("click" , function() {
     // Creazione degli elementi uno ad uno
     for(let i = 1; i <= 100; i++) {
-        const thisSquare = `<div class="square">${i}</div>`;
+        const num = i;
+        const thisSquare = createSquares(num);
+
+        // aggiungo la funzione active sullo square al click
+        thisSquare.addEventListener("click", actionOnSquares);
 
         // Inserisco gli elemento dentro il container
-        container.innerHTML += thisSquare;
+        container.append(thisSquare);
     }
 
 });
+
+// Funzione per creare gli squares -- Condizione panelSize ancora da aggiungere
+
+/**
+ * Description
+ * @param {number} innerNum
+ * @returns {object} elemento square all'interno del DOM
+ */
+
+function createSquares (innerNum) {
+    const newSquare = document.createElement("div");
+    newSquare.classList.add("square");
+    newSquare.classList.add("lg");
+    newSquare.innerHTML = innerNum;
+    return newSquare;
+}
+
+// Funzione per colorare gli square e stampare il numero in console
+
+
+/**
+ * Description
+ * @returns {background color}
+ */
+
+function actionOnSquares () {
+    const squareNum = parseInt(this.textContent);
+    this.classList.toggle("blue");
+}

@@ -22,13 +22,27 @@
 }
 
 .square {
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+
     border: 2px solid green;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.lg.square {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.md.square{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.sm.square{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
 }
 
 body{
@@ -49,4 +63,21 @@ input {
     width: 100px;
     height: 50px;
     margin-right: 6rem;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.select-btn{
+    margin-right: 2rem;
+}
+
+select{
+    width: 75px;
+    height: 40px;
+}
+
+label{
+    margin-right: 1rem;
 }
