@@ -14,12 +14,15 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 // Dati
 const btn = document.getElementById("btn");
 const container = document.querySelector(".square-container");
-const difficulty = document.querySelectorAll("option");
-console.log(difficulty);
+
 
 
 // Creazione della griglia al click del bottone
 btn.addEventListener ("click" , function() {
+    // Prendo l'input della difficoltà
+    const difficulty = document.getElementById("difficulty").value;
+    console.log(difficulty);
+
     // Creazione degli elementi uno ad uno
     for(let i = 1; i <= 100; i++) {
         const num = i;
@@ -61,4 +64,5 @@ function createSquares (innerNum) {
 function actionOnSquares () {
     const squareNum = parseInt(this.textContent);
     this.classList.toggle("blue");
+    console.log(squareNum);
 }
