@@ -20,13 +20,23 @@ const container = document.querySelector(".square-container");
 // Creazione della griglia al click del bottone
 btn.addEventListener ("click" , function() {
     // Prendo l'input della difficoltà
-    const difficulty = document.getElementById("difficulty").value;
+    const difficulty = parseInt( document.getElementById("difficulty").value);
+    
     console.log(difficulty);
 
     // Creazione degli elementi uno ad uno
-    for(let i = 1; i <= 100; i++) {
+    for(let i = 1; i <= difficulty; i++) {
         const num = i;
         const thisSquare = createSquares(num);
+
+        // Differenziazione della griglia in base alla difficoltà scelta
+        if (difficulty === 100) {
+            thisSquare.classList.add("lg");
+        } else if (difficulty === 81) {
+            thisSquare.classList.add("md");
+        } else {
+            thisSquare.classList.add("sm");
+        }
 
         // aggiungo la funzione active sullo square al click
         thisSquare.addEventListener("click", actionOnSquares);
@@ -48,7 +58,7 @@ btn.addEventListener ("click" , function() {
 function createSquares (innerNum) {
     const newSquare = document.createElement("div");
     newSquare.classList.add("square");
-    newSquare.classList.add("lg");
+    // newSquare.classList.add("lg");
     newSquare.innerHTML = innerNum;
     return newSquare;
 }
@@ -64,5 +74,5 @@ function createSquares (innerNum) {
 function actionOnSquares () {
     const squareNum = parseInt(this.textContent);
     this.classList.toggle("blue");
-    console.log(squareNum);
+    console.log("Cella num:",squareNum);
 }
