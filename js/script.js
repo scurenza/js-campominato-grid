@@ -77,6 +77,6 @@ function createSquares (innerNum) {
 
 function actionOnSquares () {
     const squareNum = parseInt(this.textContent);
-    this.classList.toggle("blue");
+    this.classList.add("blue");
     console.log("Cella num:",squareNum);
 }
